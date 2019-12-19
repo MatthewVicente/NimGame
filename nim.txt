@@ -1,0 +1,152 @@
+# --*-- enconding: UTF-8 ---*---
+
+Voc? conhece o jogo do NIM? Nesse jogo, n pe?as s?o inicialmente dispostas numa mesa ou tabuleiro. Dois jogadores
+jogam alternadamente, retirando
+pelo menos 1 e no m?ximo m pe?as cada um. Quem tirar as ?ltimas pe?as poss?veis ganha o jogo.
+
+Existe uma estrat?gia para ganhar o jogo que ? muito simples: ela consiste em deixar sempre m?ltiplos de (m+1)
+pe?as ao jogador oponente.
+
+Objetivo
+Voc? deverá escrever um programa na linguagem Python, vers?o 3, que permita a uma "v?tima" jogar o NIM contra o
+computador. O computador,
+? claro, dever? seguir a estrat?gia vencedora descrita acima.
+
+Sejam n o n?mero de pe?as inicial e m o n?mero m?ximo de pe?as que ? poss?vel retirar em uma rodada. Para garantir
+que o computador ganhe sempre,
+? preciso considerar os dois cen?rios poss?veis para o in?cio do jogo:
+
+Se n ? m?ltiplo de (m+1), o computador deve ser "generoso" e convidar o jogador a iniciar a partida com a frase "Voc?
+come?a"
+Caso contr?rio, o computador toma a inciativa de come?ar o jogo.
+Uma vez iniciado o jogo, a estrat?gia do computador para ganhar consiste em deixar sempre um n?mero de pe?as que seja
+m?ltiplo de (m+1) ao jogador.
+Caso isso n?o seja poss?vel, dever? tirar o n?mero m?ximo de pe?as poss?veis.
+
+Seu trabalho, ent?o, ser? implementar o Jogo e fazer com que o computador se utilize da estrat?gia vencedora.
+
+Seu Programa
+Com o objetivo do EP j? definido, uma d?vida que deve surgir nesse momento ? como modelar o jogo de forma que possa
+ser implementado em
+Python 3 correspondendo rigorosamente ?s especifica??es descritas at? agora.
+
+Para facilitar seu trabalho e permitir a corre??o autom?tica do exerc?cio, apresentamos a seguir um modelo, isto ?,
+uma descri??o em linhas
+gerais de um conjunto de fun??es que resolve o problema proposto neste EP. Embora sejam poss?veis outras abordagens,
+? preciso atender exatamente
+o que est? definido abaixo para que a corre??o autom?tica do trabalho funcione corretamente.
+
+O programa deve implementar:
+
+Uma fun??o computador_escolhe_jogada que recebe, como par?metros, os n?meros n e m descritos acima e devolve um
+inteiro correspondente ? pr?xima jogada do computador de acordo com a estrat?gia vencedora.
+
+Uma fun??o usuario_escolhe_jogada que recebe os mesmos par?metros, solicita que o jogador informe sua jogada e
+verifica se o valor informado ? v?lido. Se o valor informado for v?lido, a fun??o deve devolv?-lo; caso contr?rio,
+deve solicitar novamente ao usu?rio que informe uma jogada v?lida.
+
+Uma fun??o partida que n?o recebe nenhum par?metro, solicita ao usu?rio que informe os valores de n e m e inicia
+o jogo, alternando entre jogadas do computador e do usu?rio (ou seja, chamadas ?s duas fun??es anteriores). A escolha
+da jogada inicial deve ser feita em fun??o da  estrat?gia vencedora, como dito anteriormente. A cada jogada, deve ser
+impresso na tela o estado atual do jogo, ou seja, quantas pe?as foram
+removidas na ?ltima jogada e quantas restam na mesa. Quando a ?ltima pe?a ? removida, essa fun??o imprime na tela
+a mensagem "O computador ganhou!" ou "Voc? ganhou!" conforme o caso.
+Observe que, para isso funcionar, seu programa deve sempre "lembrar" qual ? o n?mero de pe?as atualmente no
+tabuleiro e qual ? o m?ximo de pe?as a retirar em cada jogada.
+
+Cuidado: o corretor autom?tico n?o funciona bem se voc? tiver alguma chamada a input() antes da defini??o de
+todas as fun??es do jogo (a menos que essa chamada esteja dentro de uma fun??o). Se seu programa usar input() sem
+que ele esteja dentro de alguma fun??o, coloque-o no final do programa.
+
+Campeonatos
+Como todos sabemos, uma ?nica rodada de um jogo n?o ? suficiente para definir quem ? o melhor jogador. 
+Assim, uma vez que a fun??o partida esteja funcionando, voc? dever? criar uma outra fun??o chamada campeonato. 
+Essa nova fun??o deve realizar tr?s partidas seguidas do jogo e, ao final, mostrar o placar dessas tr?s partidas e 
+indicar o vencedor do campeonato. O placar deve ser impresso na forma
+
+
+Execu??o
+Dado que ? poss?vel jogar partidas individuais ou campeonatos, seu programa deve come?ar solicitando ao usu?rio que
+escolha se prefere jogar apenas uma partida (op??o 1) ou um campeonato (op??o 2).
+
+Veja um exemplo de como deve funcionar o jogo:
+
+$ > python3 jogo_nim.py
+
+Bem-vindo ao jogo do NIM! 
+
+Escolha:
+
+1 - para jogar uma partida isolada
+
+2 - para jogar um campeonato 2
+
+Voce escolheu um campeonato!
+
+**** Rodada 1 ****
+
+Quantas pe?as? 3
+
+Limite de pe?as por jogada? 1
+
+Computador come?a!
+
+O computador tirou uma pe?a.
+
+Agora restam 2 pe?as no tabuleiro.
+
+Quantas pe?as voc? vai tirar? 2
+
+O
+ops! Jogada inv?lida! Tente de novo.
+
+Quantas pe?as voc? vai tirar? 1
+
+Voc? tirou uma pe?a.
+
+Agora resta apenas uma pe?a no tabuleiro.
+
+O computador tirou uma pe?a.
+
+Fim do jogo! O computador ganhou!
+
+**** Rodada 2 ****
+
+Quantas pe?as? 3
+
+Limite de pe?as por jogada? 2
+
+Voce come?a!
+
+Quantas pe?as voc? vai tirar? 2 
+
+Voce tirou 2 pe?as.
+
+Agora resta apenas uma pe?a no tabuleiro.
+
+O computador tirou uma pe?a.
+
+Fim do jogo! O computador ganhou!
+
+**** Rodada 3 ****
+
+Quantas pe?as? 4
+
+Limite de pe?as por jogada? 3
+
+Voce come?a!
+
+Quantas pe?as voc? vai tirar? 2
+
+Voce tirou 2 pe?as.
+
+Agora restam 2 pe?as no tabuleiro.
+
+O computador tirou 2 pe?as.
+
+Fim do jogo! 
+O computador ganhou!
+
+**** Final do campeonato! ****
+
+Placar: Voc? 0 X 3 Computador
