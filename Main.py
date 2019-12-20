@@ -76,5 +76,3 @@ else:
     vencedor = "VOCE"
 
 print("O jogo acabou, o vencedor foi: "+vencedor)
-
-# ESTRATEGIA: DEIXAR SEMPRE NUMERO DE PECAS NO TABULEIRO IGUAL A N MULTIPLO DE M+1, SENDO N = PECAS NO TABULEIRO E M = MAX QUE POSSO TIRAR
